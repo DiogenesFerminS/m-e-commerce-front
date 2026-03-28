@@ -1,20 +1,24 @@
-import { ProductResponse } from "@/interfaces/products.interface";
+import { ProductResponse } from "@/interfaces/product/products.interface";
 import ArrivalsCard from "./arrivalCard";
+import { ProductsService } from "@/services/products.service";
 
 const NewArrivals = async () => {
 
-  const result = await fetch(`${process.env.BACKEND_URL}/products?limit=4`);
-  const resp: ProductResponse = await result.json();
+  const result = await ProductsService.getNewArrivals();
 
-  if (!resp.ok) {
+  if (!result.success) {
     <span>Error</span>
   }
 
+  if (!result.data) {
+    return <span>error</span>
+  }
+
   return (
-    <section className="py-24 px-8 md:px-16 bg-surface">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+    <section className="py-24 px-8 md:px-16 bg-stone-900">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-4">
         <div>
-          <h2 className="text-primary text-4xl md:text-5xl font-headline font-bold mb-4 tracking-tighter">
+          <h2 className="text-primary text-4xl md:text-5xl font-bold mb-4 tracking-tighter">
             New Arrivals
           </h2>
           <p className="text-on-surface-variant font-body">
@@ -30,7 +34,7 @@ const NewArrivals = async () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {
-          resp.data.products.map((product) => (
+          result.data.products.map((product) => (
             <ArrivalsCard product={product} key={product.id}/>
           ))
         }

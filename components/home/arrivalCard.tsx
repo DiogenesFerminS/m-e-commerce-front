@@ -1,4 +1,4 @@
-import { Product } from "@/interfaces/products.interface";
+import { Product } from "@/interfaces/product/products.interface";
 import Image from "next/image";
 
 interface Props {
@@ -17,7 +17,7 @@ const ArrivalsCard = async ({ product }: Props) => {
     <div className="group relative bg-neutral overflow-hidden rounded-sm cursor-pointer border-b border-primary h-125 w-full">
       
       <Image
-        src={mainImage.path}
+        src={`${process.env.PUBLIC_URL}${mainImage.path}`}
         alt={product.name}
         unoptimized
         fill

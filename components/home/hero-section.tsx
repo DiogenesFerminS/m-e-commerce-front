@@ -7,6 +7,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0 opacity-40">
         <Image
           fill
+          priority
           className="object-cover"
           alt="Close-up of a high-end electric guitar body with sunburst finish and gold hardware in a moody, dark studio setting"
           src="/hero-guitar.webp"

@@ -9,6 +9,14 @@ export interface ProductData {
   meta: Meta;
 }
 
+export enum ProductCategory {
+  GUITAR = 'guitar',
+  BASS = 'bass',
+  DRUM = 'drum',
+  ACCESSORIES = 'accessories',
+}
+
+
 export interface Product {
   id: string;
   name: string;
@@ -16,7 +24,7 @@ export interface Product {
   brand: string;
   stock: number;
   price: string;
-  category: string;
+  category: ProductCategory;
   images: ProductImage[];
   attributes: ProductAttribute[];
   createdAt: string;

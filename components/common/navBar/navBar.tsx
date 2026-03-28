@@ -1,37 +1,46 @@
 import { CircleUser, Search, ShoppingCart } from "lucide-react";
+import Link from "next/link";
+import NavLink from "./navLink";
+
+interface Link {
+  href: string
+  label: string
+}
+
+const navLinks: Link[] = [
+  {
+    href: "/store/products/guitar",
+    label: "Guitars"
+  },
+  {
+    href: "/store/products/drum",
+    label: "Drums"
+  },
+  {
+    href: "/store/products/bass",
+    label: "Basses"
+  },
+  {
+    href: "/store/products/accessories",
+    label: "Accessories"
+  },
+]
 
 const NavBar = () => {
   return (
     <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 bg-neutral transition-colors duration-300">
       <div className="flex items-center gap-12">
-        <span className="text-2xl font-black text-primary uppercase tracking-widest font-headline">
+        <Link 
+          href={'/store'}
+          className="text-2xl font-black text-primary uppercase tracking-widest font-headline">
           Fermín
-        </span>
+        </Link>
         <div className="hidden md:flex gap-8 items-center">
-          <a
-            className="font-headline font-bold tracking-tight text-primary border-b-2 border-primary pb-1"
-            href="#"
-          >
-            Guitars
-          </a>
-          <a
-            className="font-headline font-bold tracking-tight text-tertiary hover:text-primary transition-colors"
-            href="#"
-          >
-            Drums
-          </a>
-          <a
-            className="font-headline font-bold tracking-tight text-tertiary hover:text-primary transition-colors"
-            href="#"
-          >
-            Basses
-          </a>
-          <a
-            className="font-headline font-bold tracking-tight text-tertiary hover:text-primary transition-colors"
-            href="#"
-          >
-            Accessories
-          </a>
+          {
+            navLinks.map((link) => (
+              <NavLink key={link.href} href={link.href} label={link.label}/>
+            ))
+          }
         </div>
       </div>
       <div className="flex items-center gap-6">
