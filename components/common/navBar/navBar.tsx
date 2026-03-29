@@ -9,19 +9,19 @@ interface Link {
 
 const navLinks: Link[] = [
   {
-    href: "/store/products/guitar",
+    href: "/store/products?category=guitar",
     label: "Guitars"
   },
   {
-    href: "/store/products/drum",
+    href: "/store/products?category=drum",
     label: "Drums"
   },
   {
-    href: "/store/products/bass",
+    href: "/store/products?category=bass",
     label: "Basses"
   },
   {
-    href: "/store/products/accessories",
+    href: "/store/products?category=accessories",
     label: "Accessories"
   },
 ]

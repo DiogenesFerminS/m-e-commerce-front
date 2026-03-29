@@ -1,4 +1,4 @@
-import { ProductCategory, ProductData } from "@/interfaces/product/products.interface";
+import { ProductData } from "@/interfaces/product/products.interface";
 import { HttpClient } from "./http-client";
 import { ServiceResponse } from "@/interfaces/common/service-response.interface";
 
@@ -12,10 +12,20 @@ export class ProductsService {
         })
     }
 
-    static getProducts({limit, page, category}: {limit: number, page: number, category: string}): Promise<ServiceResponse<ProductData>> {
+    static getProducts({limit, page, category}: {limit: number, page: number, category?: string}): 
+    Promise<ServiceResponse<ProductData>> {
+        const params: Record<string, number | string> = {
+            limit: limit,
+            page: page,
+        };
+
+        if (category) {
+            params.category = category;
+        }
+
         return HttpClient.punchEndPoint<undefined, ProductData>({
             url: '/products',
-            params: {limit, page, category},
+            params,
             method: 'GET',
             isPublic: true,
         });

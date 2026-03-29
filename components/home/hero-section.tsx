@@ -1,5 +1,6 @@
 import { Search } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -27,12 +28,14 @@ const Hero = () => {
           of guitars, basses, drums, and accessories from the best brands.
         </p>
         <div className="flex flex-wrap gap-4">
-          <button className="bg-primary text-neutral px-8 py-4 font-bold rounded-sm flex items-center border gap-2 hover:bg-transparent hover:border-primary hover:text-primary transition-all duration-300">
+          <Link
+            href={'/store/products'}
+            className="bg-primary text-neutral px-8 py-4 font-bold rounded-sm flex items-center border gap-2 hover:bg-transparent hover:border-primary hover:text-primary transition-all duration-300">
             Explore Catalog
             <span className="text-inherit">
                 <Search/>
             </span>
-          </button>
+          </Link>
           <button className="border px-8 py-4 font-bold rounded-sm hover:bg-primary/20 transition-all duration-300">
             The Atelier Story
           </button>

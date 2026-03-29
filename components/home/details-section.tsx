@@ -1,18 +1,22 @@
+import Image from "next/image";
+
 const DetailsSection = () => {
   return (
-    <section className="py-24 px-8 md:px-16 bg-surface-container-lowest">
+    <section className="py-24 px-8 md:px-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-        <div className="relative">
+        <div className="relative w-full h-full">
           <div className="absolute -top-10 -left-10 w-40 h-40 border-t border-l border-primary/20"></div>
-          <img
-            className="w-full aspect-square object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-1000"
-            data-alt="Artisanal luthier workshop with wooden guitar necks, tools, and sawdust under a warm vintage lamp"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcv5KX-9wxLrRnHAlZqrOCDyd2_Gnqdqopb8IJO7M7GoZq0hZfSlJXR7ZSDvFN8WE3HbFg685WGHQfO4yFvmoblESCgJYG-3jjXWKQjjy3rksWP1xalgtYXKEwEQwZ_GjldE4m-xd2bRy9T2GMMXrTWNnonIVgBA10-rI7YE9rw6aoSA8iMJdAQ6rCKJYLwHq6lbnYgoMbrUfBtLpcC1yFeC4lB8kYAuycYTUCLa_YwPj2ZvqzJyvQdCEpe6Vx1_Hpt1q_mQGKQcM"
+          <Image
+            className=" aspect-square object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-1000"
+            alt="Artisanal luthier workshop with wooden guitar necks, tools, and sawdust under a warm vintage lamp"
+            src={"/whyimg.png"}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
           />
         </div>
         <div>
           <h2 className="text-4xl font-headline font-extrabold text-on-surface mb-12 uppercase tracking-tighter">
-            Why the Atelier?
+            Why the Fermin?
           </h2>
           <div className="space-y-12">
             <div className="flex items-start gap-8">

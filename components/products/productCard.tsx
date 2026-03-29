@@ -5,7 +5,7 @@ interface Props {
     product: Product;
 }
 
-const ArrivalsCard = async ({ product }: Props) => {
+const ProductCard = async ({ product }: Props) => {
 
   const mainImage = product.images.find((img) => img.isMain);
 
@@ -19,7 +19,7 @@ const ArrivalsCard = async ({ product }: Props) => {
       <Image
         src={`${process.env.PUBLIC_URL}${mainImage.path}`}
         alt={product.name}
-        unoptimized
+        unoptimized={process.env.NODE_ENV === 'development'}
         fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
@@ -48,4 +48,4 @@ const ArrivalsCard = async ({ product }: Props) => {
   );
 };
 
-export default ArrivalsCard;
+export default ProductCard;

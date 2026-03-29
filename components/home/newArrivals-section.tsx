@@ -1,5 +1,5 @@
-import { ProductResponse } from "@/interfaces/product/products.interface";
-import ArrivalsCard from "./arrivalCard";
+import Link from "next/link";
+import ProductCard from "../products/productCard";
 import { ProductsService } from "@/services/products.service";
 
 const NewArrivals = async () => {
@@ -25,17 +25,17 @@ const NewArrivals = async () => {
             Exceptional pieces recently added to our gallery.
           </p>
         </div>
-        <a
+        <Link
           className="text-primary uppercase tracking-widest text-xs font-bold border-b border-primary/40 pb-1 hover:border-primary transition-all"
-          href="#"
+          href="/store/products"
         >
           View All Instruments
-        </a>
+        </Link>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {
           result.data.products.map((product) => (
-            <ArrivalsCard product={product} key={product.id}/>
+            <ProductCard product={product} key={product.id}/>
           ))
         }
         
