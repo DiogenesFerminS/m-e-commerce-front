@@ -37,7 +37,7 @@ const Hero = () => {
             </span>
           </Link>
           <button className="border px-8 py-4 font-bold rounded-sm hover:bg-primary/20 transition-all duration-300">
-            The Atelier Story
+            The Fermin Story
           </button>
         </div>
       </div>

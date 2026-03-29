@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 interface Props {
     href: string
@@ -10,8 +10,11 @@ interface Props {
 
 const NavLink = ({href, label}: Props) => {
   const path = usePathname();
+  const query = useSearchParams();
 
-  const activePath = path === href;
+  const fullPath = query ? `${path}?${query.toString()}` : path
+
+  const activePath = fullPath === href;
 
   return (
     <Link
