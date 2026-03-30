@@ -9,6 +9,10 @@ export interface ProductData {
   meta: Meta;
 }
 
+export interface ProductDataWithBrands extends ProductData {
+  brands: string[];
+}
+
 export enum ProductCategory {
   GUITAR = 'guitar',
   BASS = 'bass',
